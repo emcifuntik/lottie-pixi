@@ -22,6 +22,8 @@
         }
 
     </style>
+    <!-- pixi.js -->
+    <script src="js/3rd_party/pixi.min.js"></script>
     <!-- build:js lottie.js -->
     <script src="js/main.js"></script>
     <script src="js/utils/common.js"></script>
@@ -58,6 +60,7 @@
     <script src="js/utils/shapes/shapePathBuilder.js"></script>
     <script src="js/utils/audio/AudioController.js"></script>
     <script src="js/utils/imagePreloader.js" data-builds="full,canvas,canvas_light,html,html_light,svg,svg_light"></script>
+    <script src="js/utils/PXImagePreloader.js"></script>
     <!-- <script src="js/utils/imagePreloaderWorkerOverride.js" data-builds="canvas_worker"></script> -->
     <script src="js/utils/featureSupport.js"></script>
     <script src="js/utils/filters.js"></script>
@@ -78,6 +81,7 @@
     <script src="js/renderers/BaseRenderer.js"></script>
     <script src="js/renderers/SVGRenderer.js"></script>
     <script src="js/renderers/CanvasRenderer.js" data-builds="full,canvas,canvas_light,canvas_worker"></script>
+    <script src="js/renderers/PXRenderer.js"></script>
     <!-- <script src="js/renderers/CanvasRendererWorkerOverride.js" data-builds="canvas_worker"></script> -->
     <script src="js/renderers/HybridRenderer.js" data-builds="full,html,html_light"></script>
     <script src="js/mask.js"></script>
@@ -129,6 +133,9 @@
     <script src="js/elements/canvasElements/CVSolidElement.js" data-builds="full,canvas,canvas_light,canvas_worker"></script>
     <script src="js/elements/canvasElements/CVTextElement.js" data-builds="full,canvas,canvas_light"></script>
     <script src="js/elements/canvasElements/CVEffects.js" data-builds="full,canvas,canvas_light,html,html_light,canvas_worker"></script>
+    <script src="js/elements/pixiElements/PXBaseElement.js"></script>
+    <script src="js/elements/pixiElements/PXImageElement.js"></script>
+    <script src="js/elements/pixiElements/PXMaskElement.js"></script>
     <script src="js/elements/htmlElements/HBaseElement.js" data-builds="full,html,html_light"></script>
     <script src="js/elements/htmlElements/HSolidElement.js" data-builds="full,html,html_light"></script>
     <script src="js/elements/htmlElements/HCompElement.js" data-builds="full,html,html_light"></script>
@@ -180,7 +187,7 @@
     var elem = document.getElementById('lottie');
     var animData = {
         container: elem,
-        renderer: 'svg',
+        renderer: 'pixi',
         loop: true,
         autoplay: true,
         rendererSettings: {
@@ -196,7 +203,7 @@
                 y: '-200%',
             }
         },
-        path: 'exports/render/data.json',
+        path: 'data.json',
         audioFactory: createAudio,
     };
     // lottie.setQuality('low');
